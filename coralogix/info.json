@@ -1,0 +1,154 @@
+{
+  "name": "coralogix",
+  "label": "Coralogix",
+  "version": "1.0.0",
+  "category": "Logging",
+  "description": "Coralogix is a modern log analytics platform that provides real-time insights and monitoring for your log data. It offers advanced indexing, querying, and visualization capabilities, enabling users to efficiently manage and analyze log data from various sources. With features such as anomaly detection, alerting, and machine learning-powered insights, Coralogix helps organizations enhance their observability, troubleshoot issues faster, and improve overall system performance and security.",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "publisher": "Fortinet",
+  "icon_small_name": "small_icon.png",
+  "icon_large_name": "large_icon.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server API URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "value": "https://api.app.coralogix.in",
+        "description": "Specify the URL of the Coralogix server to connect and perform automated operations. For example, https://api.app.coralogix.in",
+        "tooltip": "Specify the URL of the Coralogix server to connect and perform automated operations"
+      },
+      {
+        "title": "API Key",
+        "type": "password",
+        "name": "api_key",
+        "description": "Specify the API key to access the endpoint to connect and perform automated operations. For more information, see https://coralogix.com/docs/api-keys",
+        "tooltip": "Specify the API key to access the endpoint to connect and perform automated operations. For more information, see connector documentation.",
+        "required": true,
+        "visible": true,
+        "editable": true
+      },
+      {
+        "title": "Verify SSL",
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "tooltip": "Select this option to verify the SSL certificate for the server.",
+        "description": "Select this option to verify the SSL certificate for the server. By default, this option is enabled.",
+        "required": false,
+        "visible": true,
+        "editable": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "search_archived_logs",
+      "title": "Search Archived Logs",
+      "description": "Retrieves indexed and archived logs using specified DataPrime or Lucene query.",
+      "category": "investigation",
+      "annotation": "search_archived_logs",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "description": "Specify the DataPrime or Lucene query query to filter the archived logs. For example, source logs | limit 100",
+          "tooltip": "Specify the DataPrime or Lucene query query to filter the archived logs.",
+          "placeholder": "source logs | limit 100",
+          "type": "text",
+          "visible": true,
+          "value": "",
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Start Date",
+          "name": "start_date",
+          "description": "Specify the starting date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
+          "tooltip": "Specify the starting date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
+          "type": "datetime",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "End Date",
+          "name": "end_date",
+          "description": "Specify the ending date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
+          "tooltip": "Specify the ending date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
+          "type": "datetime",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Metadata",
+          "name": "metadata",
+          "description": "Specify the metadata for the query to be executed to filter the archived logs.",
+          "tooltip": "Specify the metadata for the query to be executed to filter the archived logs.",
+          "type": "json",
+          "visible": true,
+          "value": {},
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {
+        "result": {
+          "results": [
+            {
+              "labels": [
+                {
+                  "key": "applicationname",
+                  "value": "slack"
+                },
+                {
+                  "key": "subsystemname",
+                  "value": "fsr-slack-integration"
+                },
+                {
+                  "key": "threadid"
+                },
+                {
+                  "key": "ipaddress"
+                },
+                {
+                  "key": "computername"
+                }
+              ],
+              "metadata": [
+                {
+                  "key": "timestamp",
+                  "value": "2024-07-18T06:10:46.780000000"
+                },
+                {
+                  "key": "severity",
+                  "value": "1"
+                },
+                {
+                  "key": "logid",
+                  "value": "622294d3-4182-483d-9e8c-3ff76d4b7cc5"
+                },
+                {
+                  "key": "priorityclass",
+                  "value": "high"
+                },
+                {
+                  "key": "logindex",
+                  "value": "high005c:1010714_newlogs_20240718-01"
+                }
+              ],
+              "userData": "{\"slack\":{\"userRealName\":null,\"teamId\":\"T073A3NV0CS\",\"channel\":\"fsr-slack-integration\",\"userDisplayName\":null,\"team\":\"Slack_Connector_QA\",\"text\":\"<@U07CW6C868M> has joined the channel\",\"user\":null,\"userId\":null,\"channelId\":\"C072VH4L6RM\"},\"source_system\":\"slack\"}"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
