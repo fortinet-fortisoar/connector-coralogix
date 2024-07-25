@@ -105,46 +105,17 @@
             {
               "labels": [
                 {
-                  "key": "applicationname",
-                  "value": "slack"
-                },
-                {
-                  "key": "subsystemname",
-                  "value": "fsr-slack-integration"
-                },
-                {
-                  "key": "threadid"
-                },
-                {
-                  "key": "ipaddress"
-                },
-                {
-                  "key": "computername"
+                  "key": "",
+                  "value": ""
                 }
               ],
               "metadata": [
                 {
-                  "key": "timestamp",
-                  "value": "2024-07-18T06:10:46.780000000"
-                },
-                {
-                  "key": "severity",
-                  "value": "1"
-                },
-                {
-                  "key": "logid",
-                  "value": "622294d3-4182-483d-9e8c-3ff76d4b7cc5"
-                },
-                {
-                  "key": "priorityclass",
-                  "value": "high"
-                },
-                {
-                  "key": "logindex",
-                  "value": "high005c:1010714_newlogs_20240718-01"
+                  "key": "",
+                  "value": ""
                 }
               ],
-              "userData": "{\"slack\":{\"userRealName\":null,\"teamId\":\"T073A3NV0CS\",\"channel\":\"fsr-slack-integration\",\"userDisplayName\":null,\"team\":\"Slack_Connector_QA\",\"text\":\"<@U07CW6C868M> has joined the channel\",\"user\":null,\"userId\":null,\"channelId\":\"C072VH4L6RM\"},\"source_system\":\"slack\"}"
+              "userData": ""
             }
           ]
         }
