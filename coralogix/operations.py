@@ -104,7 +104,7 @@ def search_archived_logs(config, params):
     return result
 
 
-def check_heath(config):
+def check_health(config):
     params = {
         'query': 'limit 1'
     }
@@ -115,10 +115,10 @@ def check_heath(config):
 def build_payload(params: dict):
     payload = {}
     for k, v in params.items():
-        if isinstance(v, (int, bool)) or v:
-            payload[k] = v
-        elif isinstance(v, dict):
+        if isinstance(v, dict) and v:
             payload[k] = build_payload(v)
+        elif isinstance(v, (int, bool)) or v:
+            payload[k] = v
     return payload
 
 
