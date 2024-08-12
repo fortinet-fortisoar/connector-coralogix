@@ -5,7 +5,7 @@ Copyright (c) 2024 Fortinet Inc
 Copyright end
 """
 from connectors.core.connector import Connector, ConnectorError, get_logger
-from .operations import check_heath, operations
+from .operations import check_health, operations
 
 logger = get_logger('coralogix')
 
@@ -21,7 +21,7 @@ class CoralogixConnector(Connector):
 
     def check_health(self, config=None, *args, **kwargs):
         try:
-            return check_heath(config)
+            return check_health(config)
         except Exception as err:
             logger.exception(err)
             raise ConnectorError(str(err))
