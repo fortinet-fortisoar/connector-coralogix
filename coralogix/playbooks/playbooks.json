@@ -29,10 +29,10 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1721213854,
+          "lastModifyDate": 1723443834,
           "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/59db31c9-7663-4ff9-b8de-b16cb0b07acd",
+          "triggerStep": "/api/3/workflow_steps/22e218d6-1066-437e-91cd-7140253db6ad",
           "steps": [
             {
               "@type": "WorkflowStep",
@@ -68,43 +68,21 @@
               "name": "Start",
               "description": null,
               "arguments": {
-                "route": "53261388-b152-471d-b22f-da6ca544d423",
-                "resources": [
-                  "attachments"
-                ],
                 "__triggerLimit": true,
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "params": [],
-                    "records": "{{vars.input.records}}"
+                    "params": []
                   }
                 },
-                "_promptexpanded": true,
                 "triggerOnSource": true,
-                "displayConditions": {
-                  "attachments": {
-                    "sort": [],
-                    "limit": 30,
-                    "logic": "AND",
-                    "filters": []
-                  }
-                },
-                "executeButtonText": "Execute",
-                "noRecordExecution": false,
-                "showToasterMessage": {
-                  "visible": false,
-                  "messageVisible": true
-                },
-                "triggerOnReplicate": false,
-                "singleRecordExecution": true
+                "triggerOnReplicate": false
               },
               "status": null,
               "top": "30",
               "left": "125",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "group": null,
-              "uuid": "59db31c9-7663-4ff9-b8de-b16cb0b07acd"
+              "uuid": "22e218d6-1066-437e-91cd-7140253db6ad"
             }
           ],
           "routes": [
@@ -112,24 +90,24 @@
               "@type": "WorkflowRoute",
               "name": "Start -> Search Archived Logs",
               "targetStep": "/api/3/workflow_steps/1e8c808f-afcb-4c0c-b639-35581870a258",
-              "sourceStep": "/api/3/workflow_steps/59db31c9-7663-4ff9-b8de-b16cb0b07acd",
+              "sourceStep": "/api/3/workflow_steps/22e218d6-1066-437e-91cd-7140253db6ad",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "a1522687-3b6b-4d5f-a872-55acf8720c8f"
+              "uuid": "eb181c91-788c-4ff4-9046-886d90d8c6d1"
             }
           ],
           "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "d64e6772-c749-4c10-bae3-9e34cce31a3d",
-          "id": 1818,
+          "id": 2691,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
           "importedBy": [],
           "recordTags": [
-            "Coralogix",
-            "coralogix"
+            "coralogix",
+            "Coralogix"
           ]
         }
       ]
