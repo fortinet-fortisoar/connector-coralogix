@@ -103,11 +103,6 @@
         "queryId": {
           "queryId": ""
         },
-        "warning": {
-          "timeRangeWarning": {
-            "warningMessage": ""
-          }
-        },
         "result": {
           "results": [
             {
