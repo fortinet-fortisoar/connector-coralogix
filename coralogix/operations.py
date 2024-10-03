@@ -7,6 +7,8 @@ Copyright end
 import json
 from connectors.core.connector import get_logger, ConnectorError
 import requests
+from datetime import datetime, timedelta
+from .constants import *
 
 logger = get_logger('coralogix')
 
@@ -40,13 +42,16 @@ class Coralogix:
                 logger.info('successfully get response for url {}'.format(url))
                 if method.lower() == 'delete':
                     return response
-                elif response.content:
-                    return response.json()
+                elif response.text:
+                    try:
+                        return response.json()
+                    except requests.JSONDecodeError as error:
+                        logger.warning("Response is not valid json. Error: {}".format(error))
+                        return response.text
                 else:
                     return 'custom_response'
             elif response.status_code == 400:
-                error_response = response.json()
-                error_description = error_response['message'] if error_response.get('message') else error_response
+                error_description = response.text
                 raise ConnectorError({'error_description': error_description})
             elif response.status_code == 401:
                 error_response = response.json()
@@ -85,7 +90,6 @@ class Coralogix:
 
 def search_archived_logs(config, params):
     obj = Coralogix(config)
-    endpoint = '/api/v1/dataprime/query'
     metadata = {
         "startDate": params.get('start_date'),
         "endDate": params.get('end_date'),
@@ -93,21 +97,28 @@ def search_archived_logs(config, params):
     }
     if isinstance(params.get('metadata'), dict):
         metadata.update(params.get('metadata'))
+    start_date = params.get('start_date')
+    end_date = params.get('end_date')
+    if not end_date:
+        end_date = get_time_before_hours()
+        metadata['endDate'] = end_date
+    if not start_date:
+        metadata['startDate'] = get_time_before_hours(hours=MAX_TIME_RANGE, from_date=end_date)
     metadata = build_payload(metadata)
     payload = {
         'query': params.get('query', ''),
         'metadata': metadata
     }
-    result = obj.make_request(endpoint, 'POST', data=json.dumps(payload))
+    result = obj.make_request(SEARCH_ARCHIVED_LOGS_ENDPOINT, 'POST', data=json.dumps(payload))
     if result == 'custom_response':
         return {"result": {"results": []}}
+    if isinstance(result, str):
+        return handle_text_response(result)
     return result
 
 
 def check_health(config):
-    params = {
-        'query': 'limit 1'
-    }
+    params = CHECK_HEALTH_PARAM
     search_archived_logs(config, params)
     return True
 
@@ -120,6 +131,32 @@ def build_payload(params: dict):
         elif isinstance(v, (int, bool)) or v:
             payload[k] = v
     return payload
+
+
+def get_time_before_hours(hours=0, from_date=None):
+    if not from_date:
+        result_time = datetime.utcnow()
+    else:
+        result_time = datetime.strptime(from_date, "%Y-%m-%dT%H:%M:%S.%fZ")
+    if hours:
+        result_time -= timedelta(hours=hours)
+    formatted_time = result_time.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+    return formatted_time
+
+
+def handle_text_response(result: str, count=0):
+    if count >= MAX_HANDLE_RESPONSE_COUNT or not isinstance(result, str) or not result:
+        if not result:
+            return {}
+        if isinstance(result, dict):
+            return result
+        return {"partially_parsed_result": result}
+    result_list = result.split('\n', maxsplit=1)
+    json_result = json.loads(result_list[0]) if result_list[0] else {}
+    if len(result_list) > 1:
+        text_result = result_list[1]
+        json_result.update(handle_text_response(text_result, count=count + 1))
+    return json_result
 
 
 operations = {

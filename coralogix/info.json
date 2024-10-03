@@ -100,16 +100,24 @@
         }
       ],
       "output_schema": {
+        "queryId": {
+          "queryId": ""
+        },
+        "warning": {
+          "timeRangeWarning": {
+            "warningMessage": ""
+          }
+        },
         "result": {
           "results": [
             {
-              "labels": [
+              "metadata": [
                 {
                   "key": "",
                   "value": ""
                 }
               ],
-              "metadata": [
+              "labels": [
                 {
                   "key": "",
                   "value": ""
