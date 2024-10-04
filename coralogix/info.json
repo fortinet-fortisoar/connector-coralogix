@@ -100,16 +100,19 @@
         }
       ],
       "output_schema": {
+        "queryId": {
+          "queryId": ""
+        },
         "result": {
           "results": [
             {
-              "labels": [
+              "metadata": [
                 {
                   "key": "",
                   "value": ""
                 }
               ],
-              "metadata": [
+              "labels": [
                 {
                   "key": "",
                   "value": ""

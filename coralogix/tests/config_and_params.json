@@ -1,0 +1,31 @@
+{
+  "config": [
+    {
+      "server_url": "https://api.app.coralogix.in",
+      "api_key": "",
+      "verify_ssl": true
+    }
+  ],
+  "search_archived_logs": [
+    {
+      "query": "",
+      "start_date": "2024-10-01T15:20:37.758Z",
+      "end_date": "2024-10-03T15:20:37.759Z",
+      "metadata": {
+        "tier": "TIER_FREQUENT_SEARCH",
+        "syntax": "QUERY_SYNTAX_DATAPRIME",
+        "defaultSource": "logs"
+      }
+    }
+  ],
+  "invalid_params": {
+    "text": "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_+?/.,>~<;'|[]{}:`",
+    "textarea": "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_+?/.,>~<;'|[]{}:`",
+    "email": "user@domain.com",
+    "password": "*******",
+    "integer": -123,
+    "json": {
+      "KeY": "V@|U{"
+    }
+  }
+}
