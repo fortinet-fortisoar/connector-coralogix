@@ -58,8 +58,8 @@
         {
           "title": "Query",
           "name": "query",
-          "description": "Specify the DataPrime or Lucene query query to filter the archived logs. For example, source logs | limit 100",
-          "tooltip": "Specify the DataPrime or Lucene query query to filter the archived logs.",
+          "description": "Specify the DataPrime or Lucene query query to filter the archived logs. For example, source logs | limit 100. For more information, see https://coralogix.com/docs/user-guides/data-query/dataprime/dataprime-query-language/",
+          "tooltip": "Specify the DataPrime or Lucene query query to filter the archived logs. For more information, see connector documentation.",
           "placeholder": "source logs | limit 100",
           "type": "text",
           "visible": true,
@@ -90,8 +90,8 @@
         {
           "title": "Metadata",
           "name": "metadata",
-          "description": "Specify the metadata for the query to be executed to filter the archived logs.",
-          "tooltip": "Specify the metadata for the query to be executed to filter the archived logs.",
+          "description": "Specify the metadata for the query to be executed to filter the archived logs. For more information, see https://coralogix.com/sw_viewer.html?url=https://coralogix.com/wp-content/uploads/2023/09/swagger-1.md#schemacom.coralogixapis.dataprime.v1.metadata",
+          "tooltip": "Specify the metadata for the query to be executed to filter the archived logs. For more information, see connector documentation.",
           "type": "json",
           "visible": true,
           "value": {},

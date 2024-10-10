@@ -155,7 +155,12 @@ def handle_text_response(result: str, count=0):
     json_result = json.loads(result_list[0]) if result_list[0] else {}
     if len(result_list) > 1:
         text_result = result_list[1]
-        json_result.update(handle_text_response(text_result, count=count + 1))
+        result = handle_text_response(text_result, count=count + 1)
+        if json_result.get('result') and result.get('result'):
+            if json_result.get('result').get('results') and result.get('result').get('results'):
+                json_result['result'].get('results').extend(result.get('result').get('results'))
+        else:
+            json_result.update(result)
     return json_result
 
 
