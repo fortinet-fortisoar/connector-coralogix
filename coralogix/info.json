@@ -9,7 +9,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small_icon.png",
   "icon_large_name": "large_icon.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/coralogix/986/coralogix-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -20,14 +20,14 @@
         "type": "text",
         "name": "server_url",
         "value": "https://api.app.coralogix.in",
-        "description": "Specify the URL of the Coralogix server to connect and perform automated operations. For example, https://api.app.coralogix.in",
-        "tooltip": "Specify the URL of the Coralogix server to connect and perform automated operations"
+        "description": "Specify the URL of the Coralogix server to connect and perform automated operations. For example, https://api.app.coralogix.in.",
+        "tooltip": "Specify the URL of the Coralogix server to connect and perform automated operations."
       },
       {
         "title": "API Key",
         "type": "password",
         "name": "api_key",
-        "description": "Specify the API key to access the endpoint to connect and perform automated operations. For more information, see https://coralogix.com/docs/api-keys",
+        "description": "Specify the API key to access the endpoint to connect and perform automated operations. For more information, see https://coralogix.com/docs/api-keys.",
         "tooltip": "Specify the API key to access the endpoint to connect and perform automated operations. For more information, see connector documentation.",
         "required": true,
         "visible": true,
@@ -37,8 +37,8 @@
         "title": "Verify SSL",
         "type": "checkbox",
         "name": "verify_ssl",
-        "tooltip": "Select this option to verify the SSL certificate for the server.",
-        "description": "Select this option to verify the SSL certificate for the server. By default, this option is enabled.",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true.",
         "required": false,
         "visible": true,
         "editable": true,
@@ -50,7 +50,7 @@
     {
       "operation": "search_archived_logs",
       "title": "Search Archived Logs",
-      "description": "Retrieves indexed and archived logs using specified DataPrime or Lucene query.",
+      "description": "Retrieves indexed and archived logs using a specified DataPrime or Lucene query.",
       "category": "investigation",
       "annotation": "search_archived_logs",
       "enabled": true,
@@ -58,8 +58,8 @@
         {
           "title": "Query",
           "name": "query",
-          "description": "Specify the DataPrime or Lucene query query to filter the archived logs. For example, source logs | limit 100. For more information, see https://coralogix.com/docs/user-guides/data-query/dataprime/dataprime-query-language/",
-          "tooltip": "Specify the DataPrime or Lucene query query to filter the archived logs. For more information, see connector documentation.",
+          "description": "(Optional) Specify the DataPrime or Lucene query to filter the archived logs. For example: source logs | limit 100. For more information, see https://coralogix.com/docs/user-guides/data-query/dataprime/dataprime-query-language/.",
+          "tooltip": "Specify the DataPrime or Lucene query to filter the archived logs. For more information, see connector documentation.",
           "placeholder": "source logs | limit 100",
           "type": "text",
           "visible": true,
@@ -70,8 +70,8 @@
         {
           "title": "Start Date",
           "name": "start_date",
-          "description": "Specify the starting date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
-          "tooltip": "Specify the starting date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
+          "description": "(Optional) Specify the starting date and time for retrieving the archived logs. NOTE: The maximum time range allowed for OpenSearch is 192 hours, i.e. 8 days.",
+          "tooltip": "Specify the starting date and time for retrieving the archived logs. NOTE: The maximum time range allowed for OpenSearch is 192 hours, i.e. 8 days.",
           "type": "datetime",
           "visible": true,
           "editable": true,
@@ -80,8 +80,8 @@
         {
           "title": "End Date",
           "name": "end_date",
-          "description": "Specify the ending date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
-          "tooltip": "Specify the ending date and time for retrieving the archived logs. Note: The maximum time range allowed for OpenSearch is 192 hours, which is 8 days.",
+          "description": "(Optional) Specify the ending date and time for retrieving the archived logs. NOTE: The maximum time range allowed for OpenSearch is 192 hours, i.e. 8 days.",
+          "tooltip": "Specify the ending date and time for retrieving the archived logs. NOTE: The maximum time range allowed for OpenSearch is 192 hours, i.e. 8 days.",
           "type": "datetime",
           "visible": true,
           "editable": true,
@@ -90,7 +90,7 @@
         {
           "title": "Metadata",
           "name": "metadata",
-          "description": "Specify the metadata for the query to be executed to filter the archived logs. For more information, see https://coralogix.com/sw_viewer.html?url=https://coralogix.com/wp-content/uploads/2023/09/swagger-1.md#schemacom.coralogixapis.dataprime.v1.metadata",
+          "description": "(Optional) Specify the metadata for the query to be executed to filter the archived logs. For more information, see https://coralogix.com/sw_viewer.html?url=https://coralogix.com/wp-content/uploads/2023/09/swagger-1.md#schemacom.coralogixapis.dataprime.v1.metadata",
           "tooltip": "Specify the metadata for the query to be executed to filter the archived logs. For more information, see connector documentation.",
           "type": "json",
           "visible": true,

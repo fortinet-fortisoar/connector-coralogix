@@ -145,11 +145,11 @@ def get_time_before_hours(hours=0, from_date=None):
 
 
 def handle_text_response(result: str, count=0):
-    if count >= MAX_HANDLE_RESPONSE_COUNT or not isinstance(result, str) or not result:
-        if not result:
-            return {}
-        if isinstance(result, dict):
-            return result
+    if not result:
+        return {}
+    if isinstance(result, dict):
+        return result
+    if count >= MAX_HANDLE_RESPONSE_COUNT:
         return {"partially_parsed_result": result}
     result_list = result.split('\n', maxsplit=1)
     json_result = json.loads(result_list[0]) if result_list[0] else {}
