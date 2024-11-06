@@ -21,7 +21,7 @@
         "name": "server_url",
         "value": "https://api.app.coralogix.in",
         "description": "Specify the URL of the Coralogix server to connect and perform automated operations. For example, https://api.app.coralogix.in.",
-        "tooltip": "Specify the URL of the Coralogix server to connect and perform automated operations. For more information, see connector documentation."
+        "tooltip": "Specify the URL of the Coralogix server to connect and perform automated operations."
       },
       {
         "title": "API Key",
